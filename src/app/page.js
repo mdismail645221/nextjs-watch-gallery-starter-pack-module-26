@@ -1,10 +1,15 @@
 import Products from "@/components/UI/Products";
 
 const HomePage = async() => {
+
+  // get static props like method
+  //  if you another way use 
+  // just create another funtion under the code 
   const res = await fetch("http://localhost:5000/watches", {
     next: {
       revalidate: 5
-    }
+    },
+    cache: "force-cache" // as a defult 
   });
   const data = await res.json();
   return (
